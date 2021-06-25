@@ -3,7 +3,7 @@ version: '3.1'
 volumes:
   init-db:
   data-db:
-  musicplayer_files_volume:
+    music_files_volume:
     external: true
 
 services:
@@ -16,13 +16,13 @@ services:
     restart: always  
     volumes:
       - .:/musicplayer
-      - musicplayer_files_volume:/musicplayer/files
+      - music_files_volume:/musicplayer/files
     ports:
       - 8001:8001
     networks:
-      - musicplayer_network
+      - music_network
 
 networks:
-  musicplayer_network:
+  music_network:
     external: true
       
