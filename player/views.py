@@ -15,16 +15,16 @@ class Upload(APIView):
         # siteUrl = 'http://localhost:8000/'
         try:          
             file = request.FILES['myFile']
+            name = str(file.name).split('.')[0]
             try:
-                name = str(file.name).split('.')[0]
-                destination = open(f'./files/musics/{name}.mp3', 'wb+')
+                destination = open(f'../files/musics/{name}.mp3', 'wb+')
             except Exception as e1:
-                path = f'./files/musics'
+                path = f'../files/musics'
                 try:
                     os.mkdir(path)
                 except Exception as e:
                     return Response(path,status=status.HTTP_400_BAD_REQUEST)
-                destination = open(f'../files/musics/{file.name}.jpg', 'wb+')
+                destination = open(f'../files/musics/{name}.mp3', 'wb+')
             for chunk in file.chunks():
                 destination.write(chunk)
             destination.close()
