@@ -1,0 +1,28 @@
+version: '3.1'
+
+volumes:
+  init-db:
+  data-db:
+  musicplayer_files_volume:
+    external: true
+
+services:
+  musicplayer:
+    # image: app
+    container_name: musicplayer
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always  
+    volumes:
+      - .:/musicplayer
+      - musicplayer_files_volume:/musicplayer/files
+    ports:
+      - 8001:8001
+    networks:
+      - musicplayer_network
+
+networks:
+  broker_network:
+    external: true
+      
