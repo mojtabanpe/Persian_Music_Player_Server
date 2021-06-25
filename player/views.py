@@ -11,15 +11,15 @@ import os
 
 class Upload(APIView):
     def post(self, request, *args, **kwargs):
-        siteUrl = 'http://130.185.78.154/'
+        siteUrl = 'http://130.185.78.154:8001/'
         # siteUrl = 'http://localhost:8000/'
         try:          
             file = request.FILES['myFile']
-            name = str(file.name).split('.')[0]
+            name = str(file.name).split('.')[0].replace(' ', '').replace('_', '')
             try:
                 destination = open(f'../files/musics/{name}.mp3', 'wb+')
             except Exception as e1:
-                path = f'../files/musics'
+                path = './files/musics'
                 try:
                     os.mkdir(path)
                 except Exception as e:
