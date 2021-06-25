@@ -23,6 +23,6 @@ services:
       - musicplayer_network
 
 networks:
-  broker_network:
+  musicplayer_network:
     external: true
       
