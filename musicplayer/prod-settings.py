@@ -24,9 +24,9 @@ SECRET_KEY = 'f0q)0v65sklo+@vcwi_oe_zkavg4j1b=ced1q-h2s$qa46%0j-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+ALLOWED_HOSTS = ['*']
 CORS_ALLOWED_ORIGINS = ['http://130.185.78.154:4200', 'http://omrantestmodern.ir:4200','http://130.185.78.154', 'http://omrantestmodern.ir',
-'http://130.185.78.154:81', 'http://omrantestmodern.ir:81'
+'http://130.185.78.154:81', 'http://omrantestmodern.ir:81','http://130.185.78.154:4200', 'http://130.185.78.154:4201'
 ]
 CORS_ALLOW_CREDENTIALS = True
 
